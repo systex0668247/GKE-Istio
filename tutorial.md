@@ -78,7 +78,7 @@ helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --
    --set global.mtls.enabled=false  > istio.yaml
 kubectl apply -f istio.yaml
 ```
-2. 強制 mutual TLS 版本 請複製貼到command上
+2. 強制 mutual TLS 版本
 ```
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set servicegraph.enabled=true \
@@ -369,7 +369,7 @@ echo http://$INGRESS_IP/productpage
 
 ## 安裝 Istio 範例 bookinfo (3/3)
 
-## 開啟 kaili 工具的Graph 比對
+### 開啟 kaili 工具的Graph 比對
 請到GCP 網站上 Kubernetes Engine --> 服務 --> kiali (點選)--> 通訊埠轉送 (點選) --> 在網頁預覽中開啟
 
 ![Image 2.jpg](imgs/Image%202.jpg)
