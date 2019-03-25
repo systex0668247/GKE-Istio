@@ -381,6 +381,8 @@ echo http://$INGRESS_IP/productpage
 
 ![Image 4.jpg](imgs/Image%204.jpg)
 
+![Image 4-1.jpg](imgs/Image%204-1.jpg)
+
 ![Image 5.jpg](imgs/Image%205.jpg)
 
 帳密: admin / admin
