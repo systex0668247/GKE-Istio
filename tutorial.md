@@ -78,7 +78,7 @@ helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --
    --set global.mtls.enabled=false  > istio.yaml
 kubectl apply -f istio.yaml
 ```
-2. 強制 mutual TLS 版本
+2. 強制 mutual TLS 版本 參考
 ```
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set servicegraph.enabled=true \
