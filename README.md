@@ -12,6 +12,6 @@
    3. 確認所要使用的專案代號，等會的步驟中會要從下拉選單中選取專案。
    4. 按底下的按鈕開啟你的 GCP Cloud Shell
 
-[![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/harryliu123/GKE-Istio&page=shell&working_dir=.&tutorial=tutorial.md)
+[![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&working_dir=.&tutorial=tutorial.md)
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
