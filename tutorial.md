@@ -102,7 +102,7 @@ gcloud container clusters get-credentials {{project-id}}-k8s --region=asia-east1
 
 3. 驗證 Istio 安裝在命名空間 istio-system 的結果
 ```bash
-kubectl get deployments,ing -n istio-system
+kubectl get svc -n istio-system
 ```
    應該看到類似的結果
 ```
