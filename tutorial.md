@@ -155,14 +155,7 @@ export ISTIO_LAST=istio-$ISTIO_VERSION
 ```bash
 export PATH="$PATH:~/$ISTIO_LAST/bin" ; cd $ISTIO_LAST
 ```
-3. 以內建編輯器新增 Istio 微服務範例 bookinfo 的安裝 yaml 檔
-```bash
-touch samples/bookinfo/platform/kube/bookinfo-only-have-veviews-v1.yaml
-```
-```bash
-cloudshell edit samples/bookinfo/platform/kube/bookinfo-only-have-veviews-v1.yaml
-```
-4. 修改 bookinfo-only-have-veviews-v1.yaml，內容中的 default 可置換成自訂的 namespace 名稱。
+3. 觀看說明 ../bookinfo-only-have-veviews-v1.yaml，內容中的 default 可置換成自訂的 namespace 名稱。
 ```
 apiVersion: v1
 kind: Namespace
@@ -322,14 +315,14 @@ spec:
 
 ## 安裝 Istio 範例 bookinfo (2/3)
 
-5. 安裝 bookinfo 範例
+4. 安裝 bookinfo-only-have-veviews-v1.yaml
 ```bash
-kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo-only-have-veviews-v1.yaml)
+kubectl apply -f <(istioctl kube-inject -f ../bookinfo-only-have-veviews-v1.yaml)
 ```
 ```bash
 kubectl apply -f  samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
-6. 驗證 bookinfo 安裝
+5. 驗證 bookinfo 安裝
 ```bash
 kubectl get services
 ```
@@ -342,7 +335,7 @@ productpage                10.0.0.120   <none>        9080/TCP             6m
 ratings                    10.0.0.15    <none>        9080/TCP             6m
 reviews                    10.0.0.170   <none>        9080/TCP             6m
 ```
-7. 更進一步驗證
+6. 更進一步驗證
 ```bash
 kubectl get deployments,ing
 ```
@@ -354,7 +347,7 @@ deployment.extensions/productpage-v1   1         1         1            1       
 deployment.extensions/ratings-v1       1         1         1            1           6m
 deployment.extensions/reviews-v1       1         1         1            1           6m
 ```
-8. 取得bookinfo網址 http://$GATEWAY_URL/productpage 並驗證
+7. 取得bookinfo網址 http://$GATEWAY_URL/productpage 並驗證
 ```bash
 INGRESSGATEWAY=istio-ingressgateway \
 && INGRESSGATEWAY_LABEL=istio
