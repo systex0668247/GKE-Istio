@@ -107,6 +107,11 @@ kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certm
 helm init --client-only
 ```
 
+新增 namespaces
+```bash
+kubectl create ns istio-system
+```
+
 底下兩種安裝選項，關係到 istio 的微服務是否只限於 TLS 加密通訊。為了workshop順利建議選擇第一項，事後可以修改。
 1. 不強制 mutual TLS 版本  請複製貼到command上
 ```
