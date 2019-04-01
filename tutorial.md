@@ -432,7 +432,7 @@ Graph
 ##  bookinfo 藍綠部屬
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
 ```bash
-kubectl apply -f <(istioctl kube-inject -f  ~/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 2. 驗證 是否新增新的微服務
 ```bash
