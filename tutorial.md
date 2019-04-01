@@ -116,6 +116,9 @@ helm init --client-only
 
 ## 下載Istio 1.05
 ```bash
+ISTIO_VERSION=1.0.5
+```
+```bash
 echo "ISTIO_VERSION=1.0.5" | tee -a ~/.profile
 ```
 ```bash
