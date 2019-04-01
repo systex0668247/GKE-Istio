@@ -499,7 +499,7 @@ echo http://$INGRESS_IP/productpage
 
 ![Image 7.jpg](imgs/Image%207.jpg)
 
-## Task 3 DelayFault Injection
+## Task  DelayFault Injection
 ##  bookinfo 延遲故障注入(Delay Injection) (1/4)
 
 延遲故障注入，可以模擬當網路出現延遲時，微服務的運作是否正常
