@@ -130,6 +130,9 @@ tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 ```
 ```bash
+kubectl create ns istio-system
+```
+```bash
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set servicegraph.enabled=true \
    --set tracing.enabled=true \
@@ -219,7 +222,7 @@ kubectl label namespace default istio-injection=enabled
 ```
 ![istio-k8s-namespace.png](imgs/istio-k8s-namespace.png)
 
-而此workshop中k8s中會有4個namespaces
+而此workshop中k8s中會有3個namespaces
 ![k8s-namespaces.png](imgs/k8s-namespaces.png)
 
 
