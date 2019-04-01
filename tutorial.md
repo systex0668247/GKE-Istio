@@ -87,34 +87,49 @@ _參數 --num-nodes 設定太大時，可能會請求不到資源_
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
 ```
 
-## Task 2 安裝 Istio
-## 安裝 Istio 1.05
-下載 Istio 1.05 並安裝helm, 請複製貼到command上
-```
-echo "ISTIO_VERSION=1.0.5" | tee -a ~/.profile
-wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz
-tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
+## Task 2 在GKE上部屬Istio
+後續的功能演示需要部屬Istio，下列步驟將在K8S叢集中建立Istio的各項服務，並更改K8s部分原有架構，來達對APP非侵入式控管與監控，中其中Istio架構如下：
 
+![istio.png](imgs/istio.png)
+
+我們將使用[Helm](https://helm.sh/ "Helm")來快速部屬Istio，Helm為K8s上常用的部屬工具
+
+![helm.png](imgs/helm.png)
+
+## 安裝Heml
+
+```bash
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+```
+```bash
 tar xf helm-v2.11.0-linux-amd64.tar.gz
+```
+```bash
 sudo cp linux-amd64/helm linux-amd64/tiller /usr/local/bin/
-
-echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
-
-kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/templates/crds.yaml
-kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
-
+```
+```bash
+export PATH=`pwd`/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH
+```
+```bash
 helm init --client-only
 ```
 
-新增 namespaces
+## 下載Istio 1.05
 ```bash
-kubectl create ns istio-system
+echo "ISTIO_VERSION=1.0.5" | tee -a ~/.profile
+```
+```bash
+wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz
+```
+```bash
+tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 ```
 
-底下兩種安裝選項，關係到 istio 的微服務是否只限於 TLS 加密通訊。為了workshop順利建議選擇第一項，事後可以修改。
-1. 不強制 mutual TLS 版本  請複製貼到command上
+## 安裝Istio 1.05
+```bash
+echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 ```
+```bash
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set servicegraph.enabled=true \
    --set tracing.enabled=true \
@@ -122,11 +137,25 @@ helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --
    --set gateways.istio-ilbgateway.enabled=true \
    --set kiali.enabled=true \
    --set global.mtls.enabled=false  > istio.yaml
+```
+```bash
 kubectl apply -f istio.yaml
 ```
-2. 強制 mutual TLS 版本 參考
+
+### 補充說明
+Istio可針對安全性需求，將微服務之間通信設為強制 mutual TLS 版本(本workshop使用非強制設定)
+若需使用強制 mutual TLS 版本，於產生istio.yaml範本時可增加下列設定來達成
+
 ```
+helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
+   ...
    --set global.mtls.enabled=true  > istio.yaml
+   ...
+```
+在需執行下列指令，完成設定
+```
+kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/templates/crds.yaml
+kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
 ```
 
 ## 驗證 Istio 安裝結果
@@ -134,6 +163,7 @@ kubectl apply -f istio.yaml
 ```bash
 gcloud container clusters list
 ```
+
 2. 取得 K8S 叢集認證
 ```bash
 gcloud container clusters get-credentials {{project-id}}-k8s --region=asia-east1
@@ -158,6 +188,7 @@ istio-telemetry            ClusterIP      10.47.242.73    <none>        9091/TCP
 promsd                     ClusterIP      10.47.241.188   <none>        9090/TCP                                          
 ```
 
+## 驗證 Istio 安裝結果
 4. 驗證 K8S Pods 已在運行
 ```bash
 kubectl get pods -n istio-system
@@ -180,10 +211,17 @@ promsd-6b989699d8-l7jxt                 1/1     Running     0          2d
 ```
 
 ## 設定 Istio 使用範圍
-在範例 bookinfo 的 namespace <預設為dafault,您也可以自訂> 啟用 sidecar injection
+
+將k8s的default namespace下的Pod，設為自動注入Sidecar，以加入Istio網格(service mesh)服務中
+
 ```bash
 kubectl label namespace default istio-injection=enabled
 ```
+![istio-k8s-namespace.png](imgs/istio-k8s-namespace.png)
+
+而此workshop中k8s中會有4個namespaces
+![k8s-namespaces.png](imgs/k8s-namespaces.png)
+
 
 ## Task 3 安裝 bookinfo 並簡易演示藍綠部屬
 ## 安裝 Istio 範例 bookinfo (1/3)
