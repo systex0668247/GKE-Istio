@@ -108,7 +108,7 @@ tar xf helm-v2.11.0-linux-amd64.tar.gz
 sudo cp linux-amd64/helm linux-amd64/tiller /usr/local/bin/
 ```
 ```bash
-export PATH=`pwd`/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH
+export PATH=$(pwd)/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH
 ```
 ```bash
 helm init --client-only
@@ -130,7 +130,7 @@ tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 
 ## 安裝Istio 1.05
 ```bash
-echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
+echo "PATH=$(pwd)/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 ```
 ```bash
 kubectl create ns istio-system
