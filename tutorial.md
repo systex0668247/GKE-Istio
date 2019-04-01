@@ -98,7 +98,7 @@ tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
 tar xf helm-v2.11.0-linux-amd64.tar.gz
 
-echo "PATH=`pwd`/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
+echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 
 kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/templates/crds.yaml
 kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
