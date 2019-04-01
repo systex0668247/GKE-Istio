@@ -97,6 +97,7 @@ tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
 tar xf helm-v2.11.0-linux-amd64.tar.gz
+sudo cp linux-amd64/helm linux-amd64/tiller /usr/local/bin/
 
 echo "PATH=`pwd`/GKE-Istio/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 
