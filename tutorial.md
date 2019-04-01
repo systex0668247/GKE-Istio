@@ -357,7 +357,7 @@ spec:
 
 4. 安裝 bookinfo-only-have-veviews-v1.yaml
 ```bash
-kubectl apply -f <(istioctl kube-inject -f ../bookinfo-only-have-veviews-v1.yaml)
+kubectl apply -f <(bin/istioctl kube-inject -f ../bookinfo-only-have-veviews-v1.yaml)
 ```
 ```bash
 kubectl apply -f  samples/bookinfo/networking/bookinfo-gateway.yaml
