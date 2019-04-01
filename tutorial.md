@@ -91,14 +91,14 @@ kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-ad
 ## 安裝 Istio 1.05
 下載 Istio 1.05 並安裝helm, 請複製貼到command上
 ```
-export ISTIO_VERSION=1.0.5
+echo "ISTIO_VERSION=1.0.5" | tee -a ~/.profile
 wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz
 tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
 tar xf helm-v2.11.0-linux-amd64.tar.gz
 
-export PATH=`pwd`/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH
+echo "PATH=`pwd`/istio-$ISTIO_VERSION/bin:`pwd`/linux-amd64/:$PATH" | tee -a ~/.profile
 
 kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/templates/crds.yaml
 kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
@@ -120,14 +120,7 @@ kubectl apply -f istio.yaml
 ```
 2. 強制 mutual TLS 版本 參考
 ```
-helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
-   --set servicegraph.enabled=true \
-   --set tracing.enabled=true \
-   --set sidecarInjectorWebhook.enabled=true \
-   --set gateways.istio-ilbgateway.enabled=true \
-   --set kiali.enabled=true \
    --set global.mtls.enabled=true  > istio.yaml
-kubectl apply -f istio.yaml
 ```
 
 ## 驗證 Istio 安裝結果
@@ -194,7 +187,7 @@ export ISTIO_LAST=istio-$ISTIO_VERSION
 ```
 2. 設定 istioctl 路徑
 ```bash
-export PATH="$PATH:~/$ISTIO_LAST/bin" ; cd $ISTIO_LAST
+echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile ; cd $ISTIO_LAST
 ```
 3. 觀看說明 ../bookinfo-only-have-veviews-v1.yaml，內容中的 default 可置換成自訂的 namespace 名稱。
 ```
@@ -396,6 +389,9 @@ INGRESSGATEWAY=istio-ingressgateway \
 ```bash
 export INGRESS_IP=$(kubectl -n istio-system get service istio-ingressgateway  \
 -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+```
+```bash
+echo "INGRESS_IP=$INGRESS_IP" | tee -a ~/.profile
 ```
 ```bash
 echo http://$INGRESS_IP/productpage
