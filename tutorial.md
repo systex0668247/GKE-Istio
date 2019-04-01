@@ -88,7 +88,7 @@ kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-ad
 ```
 
 ## Task 2 在GKE上部屬Istio
-後續的功能演示需要部屬Istio，下列步驟將在K8S叢集中建立Istio的各項服務，並更改K8s部分原有架構，來達對APP非侵入式控管與監控，中其中Istio架構如下：
+後續的功能演示需要部屬Istio，下列步驟將在K8S叢集中建立Istio的各項服務，並更改K8s部分原有架構，來達到對APP非侵入式控管與監控，中其中Istio架構如下：
 
 ![istio.png](imgs/istio.png)
 
