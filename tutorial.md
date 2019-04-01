@@ -469,6 +469,7 @@ echo http://$INGRESS_IP/productpage
 Graph
 
 ![Image 6.jpg](imgs/Image%206.jpg)
+![set-per-sec.jpg](imgs/set-per-sec.jpg)
 
 ##  bookinfo 藍綠部屬
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
