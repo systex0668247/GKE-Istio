@@ -518,7 +518,7 @@ echo http://$INGRESS_IP/productpage
 kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
 
-執行以下指令，將注入 1秒的延遲
+執行以下指令，將注入 5秒的延遲
 
 ```bash
 kubectl apply -f ../fault-inject-delay.yaml
@@ -540,7 +540,7 @@ spec:
   http:
   - fault:
       delay:
-        fixedDelay: 1s
+        fixedDelay: 5s
         percent: 100
     match:
     - sourceLabels:
