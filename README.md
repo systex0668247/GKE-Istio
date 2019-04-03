@@ -10,7 +10,7 @@
    1. 需有GCP的帳號，有免費試用額度為佳。
    2. 到GCP畫面上點選由上角的畫面
    https://console.cloud.google.com/home/dashboard
-   
+   ![shell.jpg](imgs/shell.jpg)
    3. 貼上下面指令
    
 ``` 
