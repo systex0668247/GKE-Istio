@@ -8,10 +8,12 @@
 ## 前置作業
 ---
    1. 需有GCP的帳號，有免費試用額度為佳。
-   2. 建立GCP新專案，或使用預設/既存的專案。若是自學測試用，建議採用新專案，可以測試後刪除整個專案，避免產生意外費用。
-   3. 確認所要使用的專案代號，等會的步驟中會要從下拉選單中選取專案。
-   4. 按底下的按鈕開啟你的 GCP Cloud Shell
-
-[![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
+   2. 到GCP畫面上點選由上角的畫面
+   3. 貼上下面指令
+   
+cd ~
+git clone https://github.com/systex0668247/GKE-Istio.git
+cd GKE-Istio
+cloudshell launch-tutorial tutorial.md
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
