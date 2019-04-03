@@ -235,6 +235,9 @@ kubectl label namespace default istio-injection=enabled
 ```bash
 export ISTIO_LAST=istio-$ISTIO_VERSION
 ```
+```bash
+cd istio-1.0.5
+```
 2. 設定 istioctl 路徑
 ```bash
 echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile ; cd $ISTIO_LAST
