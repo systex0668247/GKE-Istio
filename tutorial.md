@@ -520,7 +520,9 @@ echo http://$INGRESS_IP/productpage
 ```bash
 kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 ```
-
+```bash
+kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
+```
 執行以下指令，將注入 5秒的延遲
 
 ```bash
