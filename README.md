@@ -10,6 +10,7 @@
    1. 需有GCP的帳號，有免費試用額度為佳。
    2. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
    ![shell.jpg-w70](imgs/shell.jpg)
+   <img src="imgs/shell.jpg" width = "50%" />
    3. 貼上下面指令
    
 ``` 
