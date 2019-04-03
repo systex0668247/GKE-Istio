@@ -11,9 +11,11 @@
    2. 到GCP畫面上點選由上角的畫面
    3. 貼上下面指令
    
+``` 
 cd ~
 git clone https://github.com/systex0668247/GKE-Istio.git
 cd GKE-Istio
 cloudshell launch-tutorial tutorial.md
+```
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
