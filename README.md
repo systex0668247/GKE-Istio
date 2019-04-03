@@ -15,6 +15,9 @@
 ``` 
 cd ~
 git clone https://github.com/systex0668247/GKE-Istio.git
+```
+
+```
 cd GKE-Istio
 cloudshell launch-tutorial tutorial.md
 ```
