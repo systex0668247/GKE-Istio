@@ -1,12 +1,18 @@
-# 安裝 beta release of Istio on GKE 
+# 安裝 beta release of Istio on GKE
+## 注意事項
 ---
 1. 這是一篇學習用的指引，跟你現在的雲端環境可能會有不同，若是有所改變或失敗，請再通知作者修訂。
 2. 底下的指引都會在 Google Cloud Shell 上佈署Istio，無需在自己的電腦安裝相關套件。
 3. Google Cloud Shell 環境在閒置一段時間後可能會被消滅，以節省雲端資源。故請選擇可專注的2小時完成此指引
-4. 執行指引後的Istio/Kuberenetes環境仍會存在。預設的安裝有 1 台VM做 Kubernetes 叢集，將會產生帳單。建議有免費試用額度的 GCP 帳號為佳。
+4. 執行指引後的Istio/Kuberenetes環境仍會存在。預設的安裝有 1 台VM做 Kubernetes 叢集，將會產生帳單。建議若是要暫停多日時，可以先刪除專案，以避免產生意外的費用。
 
 ## 前置作業
 ---
+   ### 方式一
+   按底下的按鈕開啟你的 GCP Cloud Shell
+   [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
+   
+   ### 方式二
    1. 需有GCP的帳號，有免費試用額度為佳。
    2. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
        <img src="imgs/shell.jpg" width = "40%" />
