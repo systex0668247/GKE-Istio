@@ -10,7 +10,9 @@
 ---
    ### 方式一
    按底下的按鈕開啟你的 GCP Cloud Shell
+   
    [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
+   
    
    ### 方式二
    1. 需有GCP的帳號，有免費試用額度為佳。
