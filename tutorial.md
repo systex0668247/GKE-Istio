@@ -1,7 +1,7 @@
 # 在 Google Cloud Shell 上建置 Istio 
-## Task 1 環境建置
+## Task 1 環境建置 - 安裝 GKE
 
-接下來的動作，將會協助您安裝與設定 Google Cloud Platofrm，最終您會建立一個新的專案，並安裝Google Kubernetes Engine
+接下來的動作，將會協助您安裝與設定 Google Cloud Platform。您會建立一個新的專案，並安裝後續 Task 所需的 Google Kubernetes Engine(GKE)
 
 ## 1. 建立新的專案
 
@@ -240,7 +240,7 @@ cd istio-1.0.5
 ```
 2. 設定 istioctl 路徑
 ```bash
-echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile ; cd $ISTIO_LAST
+echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile
 ```
 3. 觀看說明 ../bookinfo-only-have-veviews-v1.yaml，內容中的 default 可置換成自訂的 namespace 名稱。
 ```
