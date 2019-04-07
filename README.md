@@ -24,6 +24,7 @@
    
 ``` 
 cd ~
+rm -rf GKE-Istio
 git clone https://github.com/systex0668247/GKE-Istio.git
 ```
 
