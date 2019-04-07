@@ -5,20 +5,21 @@
 2. 底下的指引都會在 Google Cloud Shell 上佈署Istio，無需在自己的電腦安裝相關套件。
 3. Google Cloud Shell 環境在閒置一段時間後可能會被消滅，以節省雲端資源。故請選擇可專注的2小時完成此指引
 4. 執行指引後的Istio/Kuberenetes環境仍會存在。預設的安裝有 1 台VM做 Kubernetes 叢集，將會產生帳單。建議若是要暫停多日時，可以先刪除專案，以避免產生意外的費用。
+5. 需有GCP的帳號，有免費試用額度為佳。
 
 ## 前置作業
 ---
    ### 方式一
-   按底下的按鈕開啟你的 GCP Cloud Shell
+   按底下的按鈕開啟你的 GCP Cloud Shell。
+   PS.若您執行此方式會失效，請採用方式二。因為您可能已執行過部份 Lab，導致參數已存在而造成此方式失效。
    
    [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
    
    
    ### 方式二
-   1. 需有GCP的帳號，有免費試用額度為佳。
-   2. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
+   1. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
        <img src="imgs/shell.jpg" width = "40%" />
-   3. 貼上下面指令
+   2. 貼上下面指令
    
 ``` 
 cd ~
