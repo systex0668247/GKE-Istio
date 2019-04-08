@@ -242,7 +242,12 @@ cd istio-1.0.5
 ```bash
 echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile
 ```
-3. 觀看說明 ../bookinfo-only-have-veviews-v1.yaml，內容中的 default 可置換成自訂的 namespace 名稱。
+3. 以下列指令打開設定檔 ../bookinfo-only-have-veviews-v1.yaml，將內容中的 namespace: default 可置換成自訂的 namespace 名稱。
+
+```bash
+cloudshell edit ../bookinfo-only-have-veviews-v1.yaml
+```
+設定檔內容如下：
 ```
 apiVersion: v1
 kind: Namespace
