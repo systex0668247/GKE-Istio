@@ -81,10 +81,20 @@ gcloud container clusters create ${PROJECT_ID}-k8s \
 
 _參數 --num-nodes 設定太大時，可能會請求不到資源_
 
-## 授權使用者權限為 GKE的cluster-admin 
-
+##  安裝GKE後的設定
+1. 授權使用者權限為 GKE的cluster-admin
 ```bash
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
+```
+
+2. 取得 K8S 叢集認證
+```bash
+gcloud container clusters get-credentials $PROJECT_ID-k8s --region=asia-east1
+````
+
+3. 查看 K8S 叢集
+```bash
+gcloud container clusters list
 ```
 
 ## Task 2 在GKE上部屬Istio
@@ -165,16 +175,6 @@ kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certm
 ```
 
 ## 驗證 Istio 安裝結果
-1. 查看 K8S 叢集
-```bash
-gcloud container clusters list
-```
-
-2. 取得 K8S 叢集認證
-```bash
-gcloud container clusters get-credentials $PROJECT_ID-k8s --region=asia-east1
-````
-
 3. 驗證 Istio 安裝在命名空間 istio-system 的結果
 ```bash
 kubectl get svc -n istio-system
