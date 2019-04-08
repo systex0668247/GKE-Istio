@@ -386,7 +386,7 @@ kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/destination
 ```bash
 kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
 ```
-執行以下指令，將注入 5秒的延遲
+執行以下指令，將注入 1秒的延遲
 
 ```bash
 kubectl apply -f ~/GKE-Istio/fault-inject-delay.yaml
@@ -408,7 +408,7 @@ spec:
   http:
   - fault:
       delay:
-        fixedDelay: 5s
+        fixedDelay: 1s
         percent: 100
     match:
     - sourceLabels:
