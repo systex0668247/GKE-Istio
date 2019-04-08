@@ -245,7 +245,7 @@ echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile
 3. 以下列指令打開設定檔 ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml。可以看到所有安裝的微服務版本都只有v1，後續將會增加佈署的版本。
 
 ```bash
-cloudshell edit ../bookinfo-only-have-veviews-v1.yaml
+less ../bookinfo-only-have-veviews-v1.yaml
 ```
 
 
