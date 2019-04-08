@@ -33,8 +33,6 @@ cloudshell launch-tutorial tutorial.md
 ### 方式二  (不建議, 由於lab 會用到port-forword 會影響 cloudshell)
    請在按底下的按鈕上，用滑鼠右鍵「在新視窗中開啟連結」，開啟你的 GCP Cloud Shell，就是接著的 Lab 操作環境。
    
-   PS.若您執行此方式會失效，請採用方式二。因為您可能已執行過部份 Lab，導致參數已存在而造成此方式失效。
-   
    [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
    
 
