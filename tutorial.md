@@ -236,7 +236,7 @@ kubectl label namespace default istio-injection=enabled
 export ISTIO_LAST=istio-$ISTIO_VERSION
 ```
 ```bash
-cd istio-1.0.5
+cd ~/GKE-Istio/istio-1.0.5
 ```
 2. 設定 istioctl 路徑
 ```bash
@@ -245,7 +245,7 @@ echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile
 3. 以下列指令打開設定檔 ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml。可以看到所有安裝的微服務版本都只有v1，後續將會增加佈署的版本。
 
 ```bash
-less ../bookinfo-only-have-veviews-v1.yaml
+less ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml
 ```
 
 
@@ -253,10 +253,10 @@ less ../bookinfo-only-have-veviews-v1.yaml
 
 4. 安裝 bookinfo-only-have-veviews-v1.yaml
 ```bash
-kubectl apply -f <(bin/istioctl kube-inject -f ../bookinfo-only-have-veviews-v1.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml)
 ```
 ```bash
-kubectl apply -f  samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
 5. 驗證 bookinfo 安裝
 ```bash
@@ -329,7 +329,7 @@ Graph
 ##  bookinfo 藍綠部屬
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
 ```bash
-kubectl apply -f <(bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 2. 驗證 是否新增新的微服務
 ```bash
@@ -367,15 +367,15 @@ echo http://$INGRESS_IP/productpage
 預設rule
 
 ```bash
-kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/destination-rule-all.yaml
 ```
 ```bash
-kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
+kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
 ```
 執行以下指令，將注入 5秒的延遲
 
 ```bash
-kubectl apply -f ../fault-inject-delay.yaml
+kubectl apply -f ~/GKE-Istio/fault-inject-delay.yaml
 ```
 
 設定細節說明
@@ -420,7 +420,7 @@ spec:
 接著要展示， __中斷故障注入__ ，在開始之前，請執行以下指令，取消原本注入的錯誤
 
 ```bash
-kubectl delete -f ../fault-inject-delay.yaml
+kubectl delete -f ~/GKE-Istio/fault-inject-delay.yaml
 ```
 
 ##  bookinfo 中斷故障注入(Fault Injection) (1/4)
@@ -436,7 +436,7 @@ kubectl delete -f ../fault-inject-delay.yaml
 執行以下指令，將注入 1秒的延遲
 
 ```bash
-kubectl apply -f ../fault-inject.yaml
+kubectl apply -f ~/GKE-Istio/fault-inject.yaml
 ```
 
 設定細節說明
@@ -483,7 +483,7 @@ spec:
 Cleanup
 
 ```bash
-kubectl delete -f ../fault-inject.yaml
+kubectl delete -f ~/GKE-Istio/fault-inject.yaml
 ```
 
 ## 刪除專案 
