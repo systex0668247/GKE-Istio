@@ -28,7 +28,13 @@ cloudshell launch-tutorial tutorial.md
    3. 千萬別對開啟 cloudshell的GCP畫面按 F5 refresh, 因為cloudshell會重置, 如果需要畫面 refresh 請利用頁面上重新整理完成
    4. 休息期間 別將browser 關閉, 因為cloudshell會重置
    
+</br>
 
+</br>
+
+</br>
+
+</br>
 
 ### 方式二  (不建議, 由於lab 會用到port-forword 會影響 cloudshell)
    請在按底下的按鈕上，用滑鼠右鍵「在新視窗中開啟連結」，開啟你的 GCP Cloud Shell，就是接著的 Lab 操作環境。
