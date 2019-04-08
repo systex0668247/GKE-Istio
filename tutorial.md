@@ -284,7 +284,14 @@ deployment.extensions/productpage-v1   1         1         1            1       
 deployment.extensions/ratings-v1       1         1         1            1           6m
 deployment.extensions/reviews-v1       1         1         1            1           6m
 ```
-7. 取得bookinfo網址 http://$GATEWAY_URL/productpage 並驗證
+7. 驗證 K8S Pods 已在運行
+```bash
+kubectl get pods
+```
+   請重複執行直到所有狀態都是Runing 或 Completed 
+   應該看到類似的結果
+   
+8. 取得bookinfo網址 http://$GATEWAY_URL/productpage 並驗證
 ```bash
 INGRESSGATEWAY=istio-ingressgateway \
 && INGRESSGATEWAY_LABEL=istio
