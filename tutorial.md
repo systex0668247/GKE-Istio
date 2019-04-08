@@ -353,12 +353,18 @@ deployment.extensions/reviews-v1       1         1         1            1       
 deployment.extensions/reviews-v2       1         1         1            1           2m
 deployment.extensions/reviews-v3       1         1         1            1           2m
 ```
-
-4. 驗證 會看到有三個不同的星星顯示方式
+4. 驗證 K8S Pods 已在運行
+```bash
+kubectl get pods
+```
+   請重複執行直到所有狀態都是Runing 或 Completed 
+   應該看到類似的結果
+   
+5. 驗證 會看到有三個不同的星星顯示方式
 ```bash
 echo http://$INGRESS_IP/productpage
 ```
-5. kaili 畫面
+6. kaili 畫面
 
 ![Image 7.jpg](imgs/Image%207.jpg)
 
