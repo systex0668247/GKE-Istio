@@ -9,15 +9,8 @@
 
 ## 前置作業
 ---
-   ### 方式一
-   請在按底下的按鈕上，用滑鼠右鍵「在新視窗中開啟連結」，開啟你的 GCP Cloud Shell，就是接著的 Lab 操作環境。
-   
-   PS.若您執行此方式會失效，請採用方式二。因為您可能已執行過部份 Lab，導致參數已存在而造成此方式失效。
-   
-   [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
-   
-   
-   ### 方式二
+ 
+   ### 方式一  (建議)
    1. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
        <img src="imgs/shell.jpg" width = "40%" />
    2. 貼上下面指令
@@ -32,5 +25,17 @@ git clone https://github.com/systex0668247/GKE-Istio.git
 cd GKE-Istio
 cloudshell launch-tutorial tutorial.md
 ```
+   3. 千萬別對開啟 cloudshell的GCP畫面按 F5 refresh, 因為cloudshell會重置, 如果需要畫面 refresh 請利用頁面上重新整理完成
+   4. 休息期間 別將browser 關閉, 因為cloudshell會重置
+   
+
+
+### 方式二  (不建議, 由於lab 會用到port-forword 會影響 cloudshell)
+   請在按底下的按鈕上，用滑鼠右鍵「在新視窗中開啟連結」，開啟你的 GCP Cloud Shell，就是接著的 Lab 操作環境。
+   
+   PS.若您執行此方式會失效，請採用方式二。因為您可能已執行過部份 Lab，導致參數已存在而造成此方式失效。
+   
+   [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
+   
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
