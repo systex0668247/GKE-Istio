@@ -334,7 +334,7 @@ Graph
 ![Image 6.jpg](imgs/Image%206.jpg)
 ![set-per-sec.jpg](imgs/set-per-sec.jpg)
 
-##  bookinfo 藍綠部屬
+##  bookinfo 藍綠部屬 (1/2)
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
 ```bash
 kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
@@ -367,6 +367,23 @@ echo http://$INGRESS_IP/productpage
 6. kaili 畫面
 
 ![Image 7.jpg](imgs/Image%207.jpg)
+
+##  bookinfo 藍綠部屬 (2/2)
+### 假設V1版本出問題
+7. 將疑似有問題的v1版本下線
+```bash
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/bookinfo-only-have-veviews-v2-and-v3.yaml)
+```
+8. 驗證 沒有星號的V1 版本消失了
+```bash
+echo http://$INGRESS_IP/productpage
+```
+9. kaili 畫面
+
+10. 恢復 原本veviews有三個版本以利後續演示
+```bash
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
+```
 
 ## Task  DelayFault Injection
 ##  bookinfo 延遲故障注入(Delay Injection) (1/4)
