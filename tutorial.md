@@ -199,6 +199,7 @@ promsd                     ClusterIP      10.47.241.188   <none>        9090/TCP
 ```bash
 kubectl get pods -n istio-system
 ```
+   請重複執行直到所有狀態都是Runing 或 Completed 
    應該看到類似的結果
 ```
 NAME                                        READY   STATUS      RESTARTS   AGE
