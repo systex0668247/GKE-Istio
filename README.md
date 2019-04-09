@@ -31,16 +31,5 @@ cloudshell launch-tutorial tutorial.md
    
 </br>
 
-</br>
-
-</br>
-
-</br>
-
-### 方式二  (不建議, 由於lab 會用到port-forword 會影響 cloudshell)
-   請在按底下的按鈕上，用滑鼠右鍵「在新視窗中開啟連結」，開啟你的 GCP Cloud Shell，就是接著的 Lab 操作環境。
-   
-   [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/systex0668247/GKE-Istio&page=shell&tutorial=tutorial.md)
-   
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
