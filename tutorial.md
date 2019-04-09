@@ -73,7 +73,6 @@ gcloud container clusters create ${PROJECT_ID}-k8s \
     --project=$PROJECT_ID \
     --machine-type=n1-standard-2 \
     --region=${DEFAULT_REGION} \
-    --num-nodes=1 \
     --cluster-version=1.11.7-gke.12
 ```
 
