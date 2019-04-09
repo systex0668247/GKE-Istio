@@ -10,7 +10,6 @@
 ## 前置作業
 ---
  
-   ### 方式一  (建議)
    1. 千萬別對開啟 cloudshell的GCP畫面按 F5 refresh, 因為cloudshell會重置, 如果需要畫面 refresh 請利用頁面上重新整理完成
    2. 休息期間 別將browser 關閉, 因為cloudshell會重置
    3. 到[GCP畫面](https://console.cloud.google.com/home/dashboard)上點選由上角的畫面 <br>
