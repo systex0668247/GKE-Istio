@@ -390,6 +390,7 @@ reviews-v3-67499898bb-j9xcw       2/2       Running       0          5m
 echo http://$INGRESS_IP/productpage
 ```
 9. kaili 畫面
+</br>
 ![no-v1.jpg](imgs/no-v1.jpg)
 
 10. 恢復 原本veviews有三個版本以利後續演示
