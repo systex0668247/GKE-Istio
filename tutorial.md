@@ -370,15 +370,21 @@ echo http://$INGRESS_IP/productpage
 
 ##  bookinfo 藍綠部屬 (2/2)
 ### 假設V1版本出問題
-7. 將疑似有問題的v1版本下線  兩種寫法
-```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/bookinfo-only-have-veviews-v2-and-v3.yaml)
-```
-或是
+7. 將疑似有問題的v1版本下線
 ```bash
 kubectl delete -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/reviews-v1.yaml)
 ```
-
+會看到v1 狀態為 如下Terminating
+```
+kubectl get po
+NAME                              READY     STATUS        RESTARTS   AGE
+details-v1-75754887d9-rdbrx       2/2       Running       0          5m
+productpage-v1-7b96bbf89f-jssgp   2/2       Running       0          5m
+ratings-v1-5b89496689-bgwkq       2/2       Running       0          5m
+reviews-v1-5fb6b66dfb-wwfw8       2/2       Terminating   0          5m
+reviews-v2-ff6679549-vx5qc        2/2       Running       0          5m
+reviews-v3-67499898bb-j9xcw       2/2       Running       0          5m
+```
 8. 驗證 沒有星號的V1 版本消失了
 ```bash
 echo http://$INGRESS_IP/productpage
