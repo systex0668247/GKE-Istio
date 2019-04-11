@@ -49,7 +49,6 @@ kubectl create ns istio-system
 ```bash
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set servicegraph.enabled=true \
-   --set tracing.enabled=true \
    --set sidecarInjectorWebhook.enabled=true \
    --set gateways.istio-ilbgateway.enabled=true \
    --set kiali.enabled=true \
