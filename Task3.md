@@ -20,10 +20,11 @@
 
 7. ![open_brower.jpg](imgs/open_brower.jpg)
 
+8. ![admin.jpg](imgs/admin.jpg)
 帳密: admin / admin
 
-Graph
+9. setting Graph
 
 ![Image 6.jpg](imgs/Image%206.jpg)
-![set-per-sec.jpg](imgs/set-per-sec.jpg)
+![setting.jpg](imgs/setting.jpg)
  
