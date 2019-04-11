@@ -1,15 +1,12 @@
 ## Task 3 安裝 bookinfo 並簡易演示藍綠部屬
 ## 安裝 Istio 範例 bookinfo (1/3)
-1. 設定 istio1.05 版本之參數
-```bash
-export ISTIO_LAST=istio-$ISTIO_VERSION
-```
+1. 確認在istio-1.0.5目錄下
 ```bash
 cd ~/GKE-Istio/istio-1.0.5
 ```
 2. 設定 istioctl 路徑
 ```bash
-echo "ISTIO_LAST=istio-$ISTIO_VERSION" | tee -a ~/.profile
+echo "ISTIO_LAST=istio-1.0.5" | tee -a ~/.profile
 ```
 3. 以下列指令打開設定檔 ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml。可以看到所有安裝的微服務版本都只有v1，後續將會增加佈署的版本。
 
