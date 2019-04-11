@@ -95,3 +95,4 @@ gcloud container clusters get-credentials $PROJECT_ID-k8s --region=asia-east1
 ```bash
 gcloud container clusters list
 ```
+ 
