@@ -10,7 +10,7 @@
 ##  bookinfo 延遲故障注入(Delay Injection) (2/4)
 部屬 veviews有三個版本以利後續演示
 ```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 預設rule
 ```bash
