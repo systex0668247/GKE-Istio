@@ -8,17 +8,17 @@
 
 1. ![select_project.jpg](imgs/select_project.jpg)
 
-![add_shell.jpg](imgs/add_shell.jpg)
+2. ![add_shell.jpg](imgs/add_shell.jpg)
 
-![Image 2.jpg](imgs/Image%202.jpg)
+3. ![Image 2.jpg](imgs/Image%202.jpg)
 
-![Image 3.jpg](imgs/Image%203.jpg)
+4. ![Image 3.jpg](imgs/Image%203.jpg)
 
-![Image 4.jpg](imgs/Image%204.jpg)
+5. ![Image 4.jpg](imgs/Image%204.jpg)
 
-![Image 4-1.jpg](imgs/Image%204-2.jpg)
+6. ![Image 4-1.jpg](imgs/Image%204-2.jpg)
 
-![open_brower.jpg](imgs/open_brower.jpg)
+7. ![open_brower.jpg](imgs/open_brower.jpg)
 
 帳密: admin / admin
 
