@@ -47,6 +47,17 @@ cloudshell launch-tutorial ~/GKE-Istio/Task4.md
 cloudshell launch-tutorial ~/GKE-Istio/Task5.md
 ```
 
+### Task6 刪除專案
+```
+cloudshell launch-tutorial ~/GKE-Istio/Task6.md
+```
+
+
+### reset-workshop-and-cloudshell
+```
+cloudshell launch-tutorial ~/GKE-Istio/reset-workshop-and-cloudshell.md
+```
+
 </br>
 
 
