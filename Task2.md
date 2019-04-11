@@ -39,9 +39,9 @@ wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTI
 tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 ```
 
-## 安裝Istio 1.05
+## 安裝Istio 1.0.5
 ```bash
-echo "PATH=$(pwd)/GKE-Istio/istio-$ISTIO_VERSION/bin:$(pwd)/linux-amd64/:$PATH" | tee -a ~/.profile
+echo "PATH=$(pwd)/GKE-Istio/istio-1.0.5/bin:$(pwd)/linux-amd64/:$PATH" | tee -a ~/.profile
 ```
 ```bash
 kubectl create ns istio-system
@@ -64,15 +64,15 @@ Istio可針對安全性需求，將微服務之間通信設為強制 mutual TLS 
 若需使用強制 mutual TLS 版本，於產生istio.yaml範本時可增加下列設定來達成
 
 ```
-helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
+helm template istio-1.0.5/install/kubernetes/helm/istio --name istio --namespace istio-system \
    ...
    --set global.mtls.enabled=true  > istio.yaml
    ...
 ```
 在需執行下列指令，完成設定
 ```
-kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/templates/crds.yaml
-kubectl apply -f istio-$ISTIO_VERSION/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
+kubectl apply -f istio-1.0.5/install/kubernetes/helm/istio/templates/crds.yaml
+kubectl apply -f istio-1.0.5/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
 ```
 
 ## 驗證 Istio 安裝結果
