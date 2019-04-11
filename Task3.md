@@ -6,17 +6,19 @@
 注意此時請copy 指令碼在頁面右上方開啟新的cloudshell 貼上指令碼執行
 --> 在網頁預覽中開啟
 
+![select_project.jpg](imgs/select_project.jpg)
+
+![add_shell.jpg](imgs/add_shell.jpg)
+
 ![Image 2.jpg](imgs/Image%202.jpg)
 
 ![Image 3.jpg](imgs/Image%203.jpg)
 
 ![Image 4.jpg](imgs/Image%204.jpg)
 
-![Image 4-1.jpg](imgs/Image%204-1.jpg)
-
 ![Image 4-1.jpg](imgs/Image%204-2.jpg)
 
-![Image 5.jpg](imgs/Image%205.jpg)
+![open_brower.jpg](imgs/open_brower.jpg)
 
 帳密: admin / admin
 
