@@ -52,6 +52,14 @@ BILLING_ACCOUNT=$(gcloud beta billing accounts list | grep True | awk -F" " '{pr
 ```bash
 gcloud beta billing projects link $PROJECT_ID --billing-account $BILLING_ACCOUNT
 ```
+一定要看到類似下面畫面確實綁定BILLING_ACCOUNT 否則後續會有問題
+```
+xxxxxx@cloudshell:~ (systex-lab-e749a3)$ gcloud beta billing projects link $PROJECT_ID --billing-account=$BILLING_ACCOUNT
+billingAccountName: billingAccounts/016640-9024B6-105FE5
+billingEnabled: true
+name: projects/systex-lab-e749a3/billingInfo
+projectId: systex-lab-e749a3
+```
 
 ## 安裝 Google 準備的 K8S 叢集
 
