@@ -16,7 +16,7 @@
 
 5. ![Image 4.jpg](imgs/Image%204.jpg)
 
-6. ![Image 4-1.jpg](imgs/Image%204-2.jpg)
+6. ![add_command.jpg](imgs/add_command.jpg)
 
 7. ![open_brower.jpg](imgs/open_brower.jpg)
 
