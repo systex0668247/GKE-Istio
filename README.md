@@ -62,3 +62,15 @@ cloudshell launch-tutorial ~/GKE-Istio/reset-workshop-and-cloudshell.md
 
 
 參考網站：(https://codelabs.developers.google.com/codelabs/cloud-hello-istio/index.html?index=..%2F..index#0)
+
+### 備註:
+如果發現出現istio所產生的pod 無法順利產生可能是billing-account 沒有綁定成功
+請重新執行
+
+```
+kubectl delete -f ~/istio.yaml
+gcloud beta billing projects link $PROJECT_ID --billing-account=$BILLING_ACCOUNT
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
+kubectl apply -f ~/istio.yaml
+```
+
