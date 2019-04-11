@@ -6,7 +6,7 @@
 注意此時請copy 指令碼在頁面右上方開啟新的cloudshell 貼上指令碼執行
 --> 在網頁預覽中開啟
 
-![select_project.jpg](imgs/select_project.jpg)
+1. ![select_project.jpg](imgs/select_project.jpg)
 
 ![add_shell.jpg](imgs/add_shell.jpg)
 
