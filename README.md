@@ -22,12 +22,31 @@ rm -rf GKE-Istio
 git clone https://github.com/systex0668247/GKE-Istio.git
 ```
 
+### Task1 安裝 GKE
 ```
-cd GKE-Istio
-cloudshell launch-tutorial tutorial.md
+cloudshell launch-tutorial ~/GKE-Istio/Task1.md
 ```
 
+### Task2 Helm 部屬 Istio
+```
+cloudshell launch-tutorial ~/GKE-Istio/Task2.md
+```
    
+### Task3 kiali port-forword
+```
+cloudshell launch-tutorial ~/GKE-Istio/Task3.md
+```
+
+### Task4 藍綠部屬
+```
+cloudshell launch-tutorial ~/GKE-Istio/Task4.md
+```
+
+### Task5 	Delay & Fault Injection
+```
+cloudshell launch-tutorial ~/GKE-Istio/Task5.md
+```
+
 </br>
 
 
