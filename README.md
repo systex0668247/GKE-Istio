@@ -53,7 +53,7 @@ cloudshell launch-tutorial ~/GKE-Istio/Task6.md
 ```
 
 
-### reset-workshop-and-cloudshell
+### reset-workshop-and-cloudshell 
 ```
 cloudshell launch-tutorial ~/GKE-Istio/reset-workshop-and-cloudshell_debug.md
 ```
