@@ -1,4 +1,4 @@
-## Task 3 安裝 bookinfo 並簡易演示藍綠部屬
+## Task 4 安裝 bookinfo 並簡易演示藍綠部屬
 ## 安裝 Istio 範例 bookinfo (1/3)
 1. 確認在istio-1.0.5目錄下
 ```bash
