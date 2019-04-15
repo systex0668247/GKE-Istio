@@ -5,7 +5,7 @@
 mv istio-1.0.5 ~/GKE-Istio/
 ```
 ```bash
-mv istio-1.0.5 ~/GKE-Istio/
+cd ~/GKE-Istio/istio-1.0.5
 ```
 2. 設定 istioctl 路徑
 ```bash
