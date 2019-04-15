@@ -7,7 +7,7 @@ mv istio-1.0.5 ~/GKE-Istio/
 ```bash
 cd ~/GKE-Istio/istio-1.0.5
 ```
-2. 設定 istioctl 路徑
+2. 設定 ISTIO_LAST 變數
 ```bash
 echo "ISTIO_LAST=istio-1.0.5" | tee -a ~/.profile
 ```
@@ -84,7 +84,7 @@ echo http://$INGRESS_IP/productpage
 ##  bookinfo 藍綠部屬 (1/2)
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
 ```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/$ISTIO_LAST/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 2. 驗證 是否新增新的微服務
 ```bash
