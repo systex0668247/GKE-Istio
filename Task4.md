@@ -2,7 +2,10 @@
 ## 安裝 Istio 範例 bookinfo (1/3)
 1. 確認在istio-1.0.5目錄下
 ```bash
-cd ~/GKE-Istio/istio-1.0.5
+mv istio-1.0.5 ~/GKE-Istio/
+```
+```bash
+mv istio-1.0.5 ~/GKE-Istio/
 ```
 2. 設定 istioctl 路徑
 ```bash
@@ -103,6 +106,16 @@ kubectl get pods
 ```
    請重複執行直到所有狀態都是Runing 或 Completed 
    應該看到類似的結果
+```
+kubectl get po
+NAME                              READY     STATUS        RESTARTS   AGE
+details-v1-75754887d9-rdbrx       2/2       Running       0          5m
+productpage-v1-7b96bbf89f-jssgp   2/2       Running       0          5m
+ratings-v1-5b89496689-bgwkq       2/2       Running       0          5m
+reviews-v1-5fb6b66dfb-wwfw8       2/2       Running       0          5m
+reviews-v2-ff6679549-vx5qc        2/2       Running       0          5m
+reviews-v3-67499898bb-j9xcw       2/2       Running       0          5m
+```
    
 5. 驗證 會看到有三個不同的星星顯示方式
 ```bash
