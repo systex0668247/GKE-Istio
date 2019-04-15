@@ -23,7 +23,7 @@
 8. ![admin.jpg](imgs/admin.jpg)
 帳密: admin / admin
 
-9. setting Graph
+9. setting Graph (這裡沒看到示意圖沒關係,後續就會出現)
 
 ![Image 6.jpg](imgs/Image%206.jpg)
 ![setting.jpg](imgs/setting.jpg)
