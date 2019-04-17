@@ -78,11 +78,9 @@ gcloud services enable container.googleapis.com
 
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
-    --project=$PROJECT_ID \
-    --machine-type=n1-standard-2 \
-    --region=${DEFAULT_REGION} \
-    --cluster-version=1.11.7-gke.12 \
-    --num-nodes=1
+    --num-nodes=3 \
+    --cluster-version=1.11.9-gke.5 \
+	--zone=${DEFAULT_REGION}-a
 ```
 
 請上網查看[相容的K8S版本](https://cloud.google.com/istio/docs/istio-on-gke/installing#supported_gke_cluster_versions)，設定到底下的 `--cluster-version`。 
