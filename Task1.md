@@ -36,6 +36,12 @@ DEFAULT_REGION=asia-east1 && \
 echo "DEFAULT_REGION=$DEFAULT_REGION" | tee -a ~/.profile && \
 gcloud config set compute/region $DEFAULT_REGION
 ```
+asia-east1分三個zone (a,b,c) 隨機選擇一個,避免workshop時大家擠在同一個
+
+```bash
+GOOGLE_ZONE=asia-east1-$(ary=(a b c) && echo ${ary[$(($RANDOM%3))]}) && \
+echo "GOOGLE_ZONE=$GOOGLE_ZONE" | tee -a ~/.profile
+```
 
 ## 4. 設定專案連結帳戶
 
@@ -80,7 +86,7 @@ gcloud services enable container.googleapis.com
 gcloud container clusters create ${PROJECT_ID}-k8s \
     --num-nodes=3 \
     --cluster-version=1.11.9-gke.5 \
-    --zone=${DEFAULT_REGION}-a
+    --zone=${GOOGLE_ZONE}
 ```
 
 請上網查看[相容的K8S版本](https://cloud.google.com/istio/docs/istio-on-gke/installing#supported_gke_cluster_versions)，設定到底下的 `--cluster-version`。 
