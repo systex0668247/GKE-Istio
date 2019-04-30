@@ -4,7 +4,7 @@
 
 ## 方法 1
 ```bash
-cd /root ; sudo rm -rf $HOME
+gcloud projects delete $PROJECT_ID ; cd /root ; sudo rm -rf $HOME
 ```
 畫面顯示無法寫入 bash_history的錯誤，是正確的結果。請再按 CloudShell 右上角的「…」按鈕，選擇「Restart」並確認原因是需要一個乾淨的VM即可。
 
