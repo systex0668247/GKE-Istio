@@ -1,5 +1,14 @@
 ## 如果因為中途失敗或是整個LAB已完成想再重做一次
+方法1、重新取得乾淨的 CloudShell VM
+方法2、刪除專案，清空 CloudShell 家目錄中的一些檔案
 
+## 方法 1
+```bash
+cd /root ; sudo rm -rf $HOME
+```
+畫面顯示無法寫入 bash_history的錯誤，是正確的結果。請再按 CloudShell 右上角的「…」按鈕，選擇「Restart」並確認原因是需要一個乾淨的VM即可。
+
+## 方法 2
 ### Delete Project
 ```bash
 gcloud projects delete $PROJECT_ID
