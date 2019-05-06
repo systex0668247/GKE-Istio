@@ -37,9 +37,9 @@ echo "DEFAULT_REGION=$DEFAULT_REGION" | tee -a ~/.profile && \
 gcloud config set compute/region $DEFAULT_REGION
 ```
 asia-east1分三個zone (a,b,c) 隨機選擇一個,避免workshop時大家擠在同一個
-####下面指令請複製後貼上, 因為cloudshell直接執行會阻擋
-```
-GOOGLE_ZONE=asia-east1-$(ary=(a b c) && echo ${ary[$(($RANDOM%3))]}) && \
+
+```bash
+GOOGLE_ZONE=asia-east1-$(openssl rand -hex 500|grep -Eo '[a-c]'|head -1) && \
 echo "GOOGLE_ZONE=$GOOGLE_ZONE" | tee -a ~/.profile
 ```
 
