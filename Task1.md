@@ -85,7 +85,7 @@ gcloud services enable container.googleapis.com
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
     --num-nodes=3 \
-    --cluster-version=1.11.9-gke.5 \
+    --cluster-version=1.11.9-gke.8 \
     --zone=${GOOGLE_ZONE}
 ```
 
