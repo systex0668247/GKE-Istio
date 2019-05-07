@@ -101,7 +101,7 @@ kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-ad
 
 2. 取得 K8S 叢集認證
 ```bash
-gcloud container clusters get-credentials $PROJECT_ID-k8s --region=asia-east1
+gcloud container clusters get-credentials $PROJECT_ID-k8s --zone=$GOOGLE_ZONE
 ````
 
 3. 查看 K8S 叢集
