@@ -1,15 +1,15 @@
 ## Task 4 安裝 bookinfo 並簡易演示藍綠部屬
 ## 安裝 Istio 範例 bookinfo (1/3)
-1. 確認在istio-1.0.5目錄下
+1. 確認在istio-1.0.6目錄下
 ```bash
-mv istio-1.0.5 ~/GKE-Istio/
+mv istio-1.0.6 ~/GKE-Istio/
 ```
 ```bash
-cd ~/GKE-Istio/istio-1.0.5
+cd ~/GKE-Istio/istio-1.0.6
 ```
 2. 設定 ISTIO_LAST 變數
 ```bash
-echo "ISTIO_LAST=istio-1.0.5" | tee -a ~/.profile
+echo "ISTIO_LAST=istio-1.0.6" | tee -a ~/.profile
 ```
 3. 以下列指令打開設定檔 ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml。可以看到所有安裝的微服務版本都只有v1，後續將會增加佈署的版本。
 
@@ -22,10 +22,10 @@ less ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml
 
 4. 安裝 bookinfo-only-have-veviews-v1.yaml
 ```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.6/bin/istioctl kube-inject -f ~/GKE-Istio/bookinfo-only-have-veviews-v1.yaml)
 ```
 ```bash
-kubectl apply -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply -f  ~/GKE-Istio/istio-1.0.6/samples/bookinfo/networking/bookinfo-gateway.yaml
 ```
 5. 驗證 bookinfo 安裝
 ```bash
@@ -129,7 +129,7 @@ echo http://$INGRESS_IP/productpage
 ### 假設V1版本出問題
 7. 將疑似有問題的v1版本下線
 ```bash
-kubectl delete -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/reviews-v1.yaml)
+kubectl delete -f <(~/GKE-Istio/istio-1.0.6/bin/istioctl kube-inject -f  ~/GKE-Istio/reviews-v1.yaml)
 ```
 會看到v1 狀態為 如下Terminating
 ```
