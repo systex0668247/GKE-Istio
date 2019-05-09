@@ -25,12 +25,12 @@ export PATH=$(pwd)/istio-$ISTIO_VERSION/bin:$(pwd)/linux-amd64/:$PATH
 helm init --client-only
 ```
 
-## 下載Istio 1.05
+## 下載Istio 1.0.6
 ```bash
-ISTIO_VERSION=1.0.5
+ISTIO_VERSION=1.0.6
 ```
 ```bash
-echo "ISTIO_VERSION=1.0.5" | tee -a ~/.profile
+echo "ISTIO_VERSION=1.0.6" | tee -a ~/.profile
 ```
 ```bash
 wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz
@@ -39,21 +39,35 @@ wget https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTI
 tar xvzf istio-$ISTIO_VERSION-linux.tar.gz
 ```
 
-## 安裝Istio 1.0.5
+## 安裝Istio 1.0.6
 ```bash
-echo "PATH=$(pwd)/GKE-Istio/istio-1.0.5/bin:$(pwd)/linux-amd64/:$PATH" | tee -a ~/.profile
+echo "PATH=$(pwd)/GKE-Istio/istio-1.0.6/bin:$(pwd)/linux-amd64/:$PATH" | tee -a ~/.profile
 ```
 ```bash
 kubectl create ns istio-system
 ```
 ```bash
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
-   --set servicegraph.enabled=true \
-   --set sidecarInjectorWebhook.enabled=true \
-   --set gateways.istio-ilbgateway.enabled=true \
    --set kiali.enabled=true \
    --set global.mtls.enabled=false  > istio.yaml
 ```
+## 新增kiali的 web Secret 帳/密: admin/admin
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kiali
+  namespace: istio-system
+  labels:
+    app: kiali
+type: Opaque
+data:
+  username: YWRtaW4=
+  passphrase: YWRtaW4=
+EOF
+```
+
 ```bash
 kubectl apply -f istio.yaml
 ```
@@ -63,15 +77,15 @@ Istio可針對安全性需求，將微服務之間通信設為強制 mutual TLS 
 若需使用強制 mutual TLS 版本，於產生istio.yaml範本時可增加下列設定來達成
 
 ```
-helm template istio-1.0.5/install/kubernetes/helm/istio --name istio --namespace istio-system \
+helm template istio-1.0.6/install/kubernetes/helm/istio --name istio --namespace istio-system \
    ...
    --set global.mtls.enabled=true  > istio.yaml
    ...
 ```
 在需執行下列指令，完成設定
 ```
-kubectl apply -f istio-1.0.5/install/kubernetes/helm/istio/templates/crds.yaml
-kubectl apply -f istio-1.0.5/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
+kubectl apply -f istio-1.0.6/install/kubernetes/helm/istio/templates/crds.yaml
+kubectl apply -f istio-1.0.6/install/kubernetes/helm/istio/charts/certmanager/templates/crds.yaml
 ```
 
 ## 驗證 Istio 安裝結果
@@ -81,17 +95,17 @@ kubectl get svc -n istio-system
 ```
    應該看到類似的結果
 ```
-NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                                                                                                                   AGE
-istio-citadel              ClusterIP      10.47.245.92    <none>        8060/TCP,9093/TCP                                                                                                         12s
-istio-egressgateway        ClusterIP      10.47.248.129   <none>        80/TCP,443/TCP                                                                                                            12s
-istio-galley               ClusterIP      10.47.248.109   <none>        443/TCP,9093/TCP                                                                                                          12s
-istio-ingressgateway       LoadBalancer   10.47.248.117   <pending>     80:31380/TCP,443:31390/TCP,31400:31400/TCP,15011:30221/TCP,8060:32445/TCP,853:30663/TCP,15030:32010/TCP,15031:32633/TCP   12s
-istio-pilot                ClusterIP      10.47.251.133   <none>        15010/TCP,15011/TCP,8080/TCP,9093/TCP                                                                                     12s
-istio-policy               ClusterIP      10.47.255.244   <none>        9091/TCP,15004/TCP,9093/TCP                                                                                               12s
-istio-sidecar-injector     ClusterIP      10.47.240.36    <none>        443/TCP                                                                                                                   12s
-istio-statsd-prom-bridge   ClusterIP      10.47.247.135   <none>        9102/TCP,9125/UDP                                                                                                         12s
-istio-telemetry            ClusterIP      10.47.242.73    <none>        9091/TCP,15004/TCP,9093/TCP,42422/TCP                                                                                     12s
-promsd                     ClusterIP      10.47.241.188   <none>        9090/TCP                                          
+NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                                                AGE
+istio-citadel            ClusterIP      10.43.243.141   <none>           8060/TCP,9093/TCP                                                28m
+istio-egressgateway      ClusterIP      10.43.251.35    <none>           80/TCP,443/TCP                                                28m
+istio-galley             ClusterIP      10.43.254.41    <none>           443/TCP,9093/TCP                                                28m
+istio-ingressgateway     LoadBalancer   10.43.242.124   104.199.149.90   80:31380/TCP,443:31390/TCP,31400:31400/TCP,15011:31466/TCP,8060:32513/TCP,853:30560/TCP,15030:30148/TCP,15031:30169/TCP   28m
+istio-pilot              ClusterIP      10.43.246.161   <none>           15010/TCP,15011/TCP,8080/TCP,9093/TCP                                                28m
+istio-policy             ClusterIP      10.43.242.195   <none>           9091/TCP,15004/TCP,9093/TCP                                                28m
+istio-sidecar-injector   ClusterIP      10.43.244.243   <none>           443/TCP                                                28m
+istio-telemetry          ClusterIP      10.43.245.179   <none>           9091/TCP,15004/TCP,9093/TCP,42422/TCP                                                28m
+kiali                    ClusterIP      10.43.250.63    <none>           20001/TCP                                                28m
+prometheus               ClusterIP      10.43.249.167   <none>           9090/TCP                                                28m
 ```
 
 ## 驗證 Istio 安裝結果
