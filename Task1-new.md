@@ -90,7 +90,7 @@ gcloud compute machine-types list |grep asia-east1
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
     --num-nodes=3 \
-    --cluster-version=1.10.12-gke.14 \
+    --cluster-version=1.12.6-gke.14 \
     --zone=${GOOGLE_ZONE}
     --machine-type=n1-highmem-4
 ```
