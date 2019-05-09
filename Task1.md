@@ -79,19 +79,21 @@ gcloud services enable container.googleapis.com
 
 ### 安裝GKE
 
-查詢目前GCP上  region為asia-east1 的 machine-type 這裡選擇type: n1-highmem-4 (vcpu: 4  memory: 26.00)
+GCP上一個zone 只能選8 vcpu 下面GKE環境選擇如下
+machine-type : custom-4-16384  自定義規格 cpu: 4, memory: 16G
+#### 
 ```bash
 gcloud compute machine-types list |grep asia-east1
 ```
 
-以下指令，會協助您建立 K8S 叢集，只有一個 worknodes，完成約需 3min
+以下指令，會協助您建立 K8S 叢集，兩個 worknodes，完成約需 3min
 
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
     --num-nodes=2 \
     --cluster-version=1.12.6-gke.10 \
     --zone=${GOOGLE_ZONE} \
-    --machine-type=custom-4-8192
+    --machine-type=custom-4-16384
 ```
 
 請上網查看[相容的K8S版本](https://cloud.google.com/istio/docs/istio-on-gke/installing#supported_gke_cluster_versions)，設定到底下的 `--cluster-version`。 
