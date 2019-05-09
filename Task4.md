@@ -84,7 +84,7 @@ echo http://$INGRESS_IP/productpage
 ##  bookinfo 藍綠部屬 (1/2)
 1. 佈屬bookinfo含有bookinfo veviews-v1, veviews-v2 和veviews-v3
 ```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.6/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.6/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 2. 驗證 是否新增新的微服務
 ```bash
