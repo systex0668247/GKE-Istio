@@ -53,7 +53,7 @@ helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --
 ```
 ## 新增kiali的 web Secret 帳/密: admin/admin
 ```bash
-kubectl apply -f kiali-secret.yaml
+kubectl apply -f  ~/GKE-Istio/kiali-secret.yaml
 ```
 ```bash
 kubectl apply -f istio.yaml
