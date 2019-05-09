@@ -10,14 +10,14 @@
 ##  bookinfo 延遲故障注入(Delay Injection) (2/4)
 部屬 veviews有三個版本以利後續演示
 ```bash
-kubectl apply -f <(~/GKE-Istio/istio-1.0.5/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.5/samples/bookinfo/platform/kube/bookinfo.yaml)
+kubectl apply -f <(~/GKE-Istio/istio-1.0.6/bin/istioctl kube-inject -f  ~/GKE-Istio/istio-1.0.6/samples/bookinfo/platform/kube/bookinfo.yaml)
 ```
 預設rule
 ```bash
-kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/destination-rule-all.yaml
+kubectl apply -f ~/GKE-Istio/istio-1.0.6/samples/bookinfo/networking/destination-rule-all.yaml
 ```
 ```bash
-kubectl apply -f ~/GKE-Istio/istio-1.0.5/samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
+kubectl apply -f ~/GKE-Istio/istio-1.0.6/samples/bookinfo/networking/virtual-service-ratings-test-delay.yaml
 ```
 執行以下指令，將注入 1秒的延遲
 
