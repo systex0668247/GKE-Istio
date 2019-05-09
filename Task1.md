@@ -1,4 +1,3 @@
-
 ## Task 1 環境建置 - 安裝 GKE
 
 接下來的動作，將會協助您安裝與設定 Google Cloud Platform。您會建立一個新的專案，並安裝後續 Task 所需的 Google Kubernetes Engine(GKE)
@@ -80,13 +79,19 @@ gcloud services enable container.googleapis.com
 
 ### 安裝GKE
 
+查詢目前GCP上  region為asia-east1 的 machine-type 這裡選擇type: n1-highmem-4 (vcpu: 4  memory: 26.00)
+```bash
+gcloud compute machine-types list |grep asia-east1
+```
+
 以下指令，會協助您建立 K8S 叢集，只有一個 worknodes，完成約需 3min
 
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
-    --num-nodes=5 \
-    --cluster-version=1.11.9-gke.8 \
-    --zone=${GOOGLE_ZONE}
+    --num-nodes=2 \
+    --cluster-version=1.12.6-gke.10 \
+    --zone=${GOOGLE_ZONE} \
+    --machine-type=custom-4-8192
 ```
 
 請上網查看[相容的K8S版本](https://cloud.google.com/istio/docs/istio-on-gke/installing#supported_gke_cluster_versions)，設定到底下的 `--cluster-version`。 
