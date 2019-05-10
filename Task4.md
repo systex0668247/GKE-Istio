@@ -132,8 +132,10 @@ echo http://$INGRESS_IP/productpage
 kubectl delete -f <(~/GKE-Istio/istio-1.0.6/bin/istioctl kube-inject -f  ~/GKE-Istio/reviews-v1.yaml)
 ```
 會看到v1 狀態為 如下Terminating
-```
+```bash
 kubectl get po
+```
+```bash
 NAME                              READY     STATUS        RESTARTS   AGE
 details-v1-75754887d9-rdbrx       2/2       Running       0          5m
 productpage-v1-7b96bbf89f-jssgp   2/2       Running       0          5m
