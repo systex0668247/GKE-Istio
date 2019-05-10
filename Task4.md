@@ -106,8 +106,10 @@ kubectl get pods
 ```
    請重複執行直到所有狀態都是Runing 或 Completed 
    應該看到類似的結果
-```
+```bash
 kubectl get po
+```
+```bash
 NAME                              READY     STATUS        RESTARTS   AGE
 details-v1-75754887d9-rdbrx       2/2       Running       0          5m
 productpage-v1-7b96bbf89f-jssgp   2/2       Running       0          5m
