@@ -46,14 +46,15 @@ echo "PATH=$(pwd)/GKE-Istio/istio-1.0.6/bin:$(pwd)/linux-amd64/:$PATH" | tee -a 
 ```bash
 kubectl create ns istio-system
 ```
+### 新增kiali的 web Secret 帳/密: admin/admin
+```bash
+kubectl apply -f  ~/GKE-Istio/kiali-secret.yaml
+```
+
 ```bash
 helm template istio-$ISTIO_VERSION/install/kubernetes/helm/istio --name istio --namespace istio-system \
    --set kiali.enabled=true \
    --set global.mtls.enabled=false  > istio.yaml
-```
-## 新增kiali的 web Secret 帳/密: admin/admin
-```bash
-kubectl apply -f  ~/GKE-Istio/kiali-secret.yaml
 ```
 ```bash
 kubectl apply -f istio.yaml
