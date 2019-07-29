@@ -91,7 +91,7 @@ gcloud compute machine-types list |grep asia-east1
 ```bash
 gcloud container clusters create ${PROJECT_ID}-k8s \
     --num-nodes=2 \
-    --cluster-version=1.12.6-gke.10 \
+    --cluster-version=1.12.8-gke.10 \
     --zone=${GOOGLE_ZONE} \
     --machine-type=custom-4-16384
 ```
